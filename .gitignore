@@ -1,0 +1,18 @@
+*
+#
+# !*/
+#
+#
+#
+# # track this file
+#
+#
+#
+.gitignore
+#
+#
+#
+# # whitelist everything in ./nvim/
+!nvim/**/
+!kabai/
+!skhd/
