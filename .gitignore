@@ -1,6 +1,6 @@
 *
 #
-# !*/
+!*/
 #
 #
 #
@@ -13,6 +13,7 @@
 #
 #
 # # whitelist everything in ./nvim/
-!nvim/**/
-!kabai/
-!skhd/
+!nvim/**
+!kabai/**
+!skhd/**
+!testFolder/**
