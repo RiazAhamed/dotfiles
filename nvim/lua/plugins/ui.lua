@@ -1,129 +1,154 @@
 return {
+  -- messages, cmdline and the popupmenu
   {
-    "nvim-tree/nvim-web-devicons",
-    enabled = vim.g.icons_enabled,
-    opts = {
-      override = {
-        default_icon = { icon = require("astronvim.utils").get_icon "DefaultFile" },
-        deb = { icon = "", name = "Deb" },
-        lock = { icon = "󰌾", name = "Lock" },
-        mp3 = { icon = "󰎆", name = "Mp3" },
-        mp4 = { icon = "", name = "Mp4" },
-        out = { icon = "", name = "Out" },
-        ["robots.txt"] = { icon = "󰚩", name = "Robots" },
-        ttf = { icon = "", name = "TrueTypeFont" },
-        rpm = { icon = "", name = "Rpm" },
-        woff = { icon = "", name = "WebOpenFontFormat" },
-        woff2 = { icon = "", name = "WebOpenFontFormat2" },
-        xz = { icon = "", name = "Xz" },
-        zip = { icon = "", name = "Zip" },
-      },
-    },
+    "folke/noice.nvim",
+    opts = function(_, opts)
+      table.insert(opts.routes, {
+        filter = {
+          event = "notify",
+          find = "No information available",
+        },
+        opts = { skip = true },
+      })
+      local focused = true
+      vim.api.nvim_create_autocmd("FocusGained", {
+        callback = function()
+          focused = true
+        end,
+      })
+      vim.api.nvim_create_autocmd("FocusLost", {
+        callback = function()
+          focused = false
+        end,
+      })
+      table.insert(opts.routes, 1, {
+        filter = {
+          cond = function()
+            return not focused
+          end,
+        },
+        view = "notify_send",
+        opts = { stop = false },
+      })
+
+      opts.commands = {
+        all = {
+          -- options for the message history that you get with `:Noice`
+          view = "split",
+          opts = { enter = true, format = "details" },
+          filter = {},
+        },
+      }
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = "markdown",
+        callback = function(event)
+          vim.schedule(function()
+            require("noice.text.markdown").keys(event.buf)
+          end)
+        end,
+      })
+
+      opts.presets.lsp_doc_border = true
+    end,
   },
-  {
-    "onsails/lspkind.nvim",
-    opts = {
-      mode = "symbol",
-      symbol_map = {
-        Array = "󰅪",
-        Boolean = "⊨",
-        Class = "󰌗",
-        Constructor = "",
-        Key = "󰌆",
-        Namespace = "󰅪",
-        Null = "NULL",
-        Number = "#",
-        Object = "󰀚",
-        Package = "󰏗",
-        Property = "",
-        Reference = "",
-        Snippet = "",
-        String = "󰀬",
-        TypeParameter = "󰊄",
-        Unit = "",
-      },
-      menu = {},
-    },
-    enabled = vim.g.icons_enabled,
-    config = require "plugins.configs.lspkind",
-  },
+
   {
     "rcarriga/nvim-notify",
-    init = function() require("astronvim.utils").load_plugin_with_func("nvim-notify", vim, "notify") end,
     opts = {
-      on_open = function(win)
-        vim.api.nvim_win_set_config(win, { zindex = 175 })
-        if not vim.g.ui_notifications_enabled then vim.api.nvim_win_close(win, true) end
-        if not package.loaded["nvim-treesitter"] then pcall(require, "nvim-treesitter") end
-        vim.wo[win].conceallevel = 3
-        local buf = vim.api.nvim_win_get_buf(win)
-        if not pcall(vim.treesitter.start, buf, "markdown") then vim.bo[buf].syntax = "markdown" end
-        vim.wo[win].spell = false
-      end,
-    },
-    config = require "plugins.configs.notify",
-  },
-  {
-    "stevearc/dressing.nvim",
-    init = function() require("astronvim.utils").load_plugin_with_func("dressing.nvim", vim.ui, { "input", "select" }) end,
-    opts = {
-      input = { default_prompt = "➤ " },
-      select = { backend = { "telescope", "builtin" } },
+      timeout = 5000,
     },
   },
+
+  -- animations
   {
-    "NvChad/nvim-colorizer.lua",
-    event = "User AstroFile",
-    cmd = { "ColorizerToggle", "ColorizerAttachToBuffer", "ColorizerDetachFromBuffer", "ColorizerReloadAllBuffers" },
-    opts = { user_default_options = { names = false } },
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    opts = function(_, opts)
+      opts.scroll = {
+        enable = false,
+      }
+    end,
   },
+
+  -- buffer line
   {
-    "lukas-reineke/indent-blankline.nvim",
-    event = "User AstroFile",
-    opts = {
-      buftype_exclude = {
-        "nofile",
-        "terminal",
-      },
-      filetype_exclude = {
-        "help",
-        "startify",
-        "aerial",
-        "alpha",
-        "dashboard",
-        "lazy",
-        "neogitstatus",
-        "NvimTree",
-        "neo-tree",
-        "Trouble",
-      },
-      context_patterns = {
-        "class",
-        "return",
-        "function",
-        "method",
-        "^if",
-        "^while",
-        "jsx_element",
-        "^for",
-        "^object",
-        "^table",
-        "block",
-        "arguments",
-        "if_statement",
-        "else_clause",
-        "jsx_element",
-        "jsx_self_closing_element",
-        "try_statement",
-        "catch_clause",
-        "import_statement",
-        "operation_type",
-      },
-      show_trailing_blankline_indent = false,
-      use_treesitter = true,
-      char = "▏",
-      context_char = "▏",
-      show_current_context = true,
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<Tab>", "<Cmd>BufferLineCycleNext<CR>", desc = "Next tab" },
+      { "<S-Tab>", "<Cmd>BufferLineCyclePrev<CR>", desc = "Prev tab" },
     },
+    opts = {
+      options = {
+        mode = "tabs",
+        -- separator_style = "slant",
+        show_buffer_close_icons = false,
+        show_close_icon = false,
+      },
+    },
+  },
+
+  -- filename
+  {
+    "b0o/incline.nvim",
+    dependencies = { "craftzdog/solarized-osaka.nvim" },
+    event = "BufReadPre",
+    priority = 1200,
+    config = function()
+      local colors = require("solarized-osaka.colors").setup()
+      require("incline").setup({
+        highlight = {
+          groups = {
+            InclineNormal = { guibg = colors.base03, guifg = colors.violet100 },
+            InclineNormalNC = { guibg = colors.base03, guifg = colors.base01 },
+          },
+        },
+        window = { margin = { vertical = 0, horizontal = 1 } },
+        hide = {
+          cursorline = true,
+        },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          if vim.bo[props.buf].modified then
+            filename = filename .. " [*]"
+          end
+
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+          return { { icon, guifg = color }, { " " }, { filename } }
+        end,
+      })
+    end,
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    cmd = "ZenMode",
+    opts = {
+      plugins = {
+        gitsigns = true,
+        tmux = true,
+        kitty = { enabled = false, font = "+2" },
+      },
+    },
+    keys = { { "<leader>z", "<cmd>ZenMode<cr>", desc = "Zen Mode" } },
+  },
+
+  {
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
+    opts = function(_, opts)
+      local logo = [[
+        ███████╗████████╗██╗   ██╗███████╗███████╗██╗███╗   ██╗ ██████╗ ██████╗ ██████╗ ███████╗
+        ██╔════╝╚══██╔══╝██║   ██║██╔════╝██╔════╝██║████╗  ██║██╔════╝██╔═══██╗██╔══██╗██╔════╝
+        ███████╗   ██║   ██║   ██║█████╗  █████╗  ██║██╔██╗ ██║██║     ██║   ██║██║  ██║█████╗
+        ╚════██║   ██║   ██║   ██║██╔══╝  ██╔══╝  ██║██║╚██╗██║██║     ██║   ██║██║  ██║██╔══╝
+        ███████║   ██║   ╚██████╔╝██║     ██║     ██║██║ ╚████║╚██████╗╚██████╔╝██████╔╝███████╗
+        ╚══════╝   ╚═╝    ╚═════╝ ╚═╝     ╚═╝     ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚═════╝ ╚══════╝
+      ]]
+
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+      opts.config.header = vim.split(logo, "\n")
+    end,
   },
 }
