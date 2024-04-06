@@ -15,12 +15,10 @@ keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
 
 ---Delete word backwords
-keymap.set("n", "<C-S-left>", 'vb"_d')
--- Delete till end of line
-keymap.set("n", "<S-right>", 'v$"_d')
--- Delete till beginning of line
-keymap.set("n", "<S-left>", 'v0"_d')
+keymap.set("n", "<S-left>", 'vb"_d')
+keymap.set("n", "<S-right>", 've"_d')
 
+--Select all
 --Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
