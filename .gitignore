@@ -1,6 +1,6 @@
-*
+# *
 #
-!*/
+# !*/
 #
 #
 #
@@ -14,9 +14,21 @@
 #
 #
 # # whitelist everything in ./nvim/
-!nvim/**
-!kabai/**
-!skhd/**
-!testFolder/**
-!alacritty/**
-!tmux/**
+# !README.md
+# !nvim/**
+# !kabai/**
+# !skhd/**
+# !testFolder/**
+# !alacritty/**
+# !tmux/**
+# Exclude
+configstore/**
+filezilla/**
+flutter/**
+github-copilot/**
+gtk-3.0/**
+jgit/**
+kitty/**
+raycast/**
+valet/**
+tmux/plugins/**
