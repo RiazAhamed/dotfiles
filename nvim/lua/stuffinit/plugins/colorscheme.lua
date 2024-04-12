@@ -1,4 +1,8 @@
 return {
+  -- retro style
+  { "ellisonleao/gruvbox.nvim" },
+
+  -- Modern Stuled
   {
     "folke/tokyonight.nvim",
     config = function()
@@ -22,6 +26,7 @@ return {
       vim.cmd("colorscheme tokyonight")
     end,
   },
+  -- inbetween modern and reto (but need fixes)
   {
     "craftzdog/solarized-osaka.nvim",
     lazy = true,
