@@ -61,8 +61,8 @@ keymap.set("n", "<S-Tab>", ":bprevious <CR>") -- Shift+Tab goes to previous buff
 keymap.set("n", "<leader>d", ":bd! <CR>") -- Space+d delets current buffer
 
 -- adjust split sizes easier
-keymap.set("n", "<S-Left>", ":vertical resize +3<CR>") -- Control+Left resizes vertical split +
-keymap.set("n", "<S-Right>", ":vertical resize -5<CR>") -- Control+Right resizes vertical split -
+-- keymap.set("n", "<S-Left>", ":vertical resize +3<CR>") -- Control+Left resizes vertical split +
+-- keymap.set("n", "<S-Right>", ":vertical resize -5<CR>") -- Control+Right resizes vertical split -
 
 -- Automatically create if, case, and function templates
 -- keymap.set("n", "<leader>i", "iif [ @ ]; then <CR><CR> else <CR><CR> fi <ESC>/@ <CR>")
@@ -80,7 +80,7 @@ keymap.set("i", "(", "()<left>")
 keymap.set("i", "[", "[]<left>")
 keymap.set("i", "{", "{}<left>")
 keymap.set("i", "{;", "{};<left><left>")
-keymap.set("i", "/*", "/**/<left><left>")
+-- keymap.set("i", "/*", "/**/<left><left>")
 
 -- Automatically create if, case, and function templates in insert mode
 keymap.set("i", ",i", "if [ @ ]; then <CR><CR> else <CR><CR> fi ")

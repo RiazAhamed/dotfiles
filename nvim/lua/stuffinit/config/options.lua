@@ -40,6 +40,8 @@ vim.opt.completeopt = { "menuone", "noselect" }
 vim.opt.splitbelow = true -- split go below
 vim.opt.splitright = true -- vertical split to the right
 vim.opt.termguicolors = true -- terminal gui colors
+vim.cmd("filetype plugin on") -- set filetype
+vim.cmd("set wildmenu")
 
 vim.opt.autoindent = true
 --- vim.opt.shell = "fish"

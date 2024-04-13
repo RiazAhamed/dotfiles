@@ -22,6 +22,7 @@ return {
         "svelte",
         "kotlin",
         "angular",
+        "java",
       },
 
       -- matchup = {
