@@ -1,6 +1,15 @@
 return {
   -- retro style
   { "ellisonleao/gruvbox.nvim" },
+  {
+    "rose-pine/neovim",
+    as = "rose-pine",
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    end,
+  },
   -- modern stulle
   {
     "folke/tokyonight.nvim",
@@ -17,7 +26,7 @@ return {
       local border = "#547998"
 
       require("tokyonight").setup({
-        style = "moon",
+        style = "night",
         italic_functions = true,
         italic_variables = true,
         italic_keywords = true,
@@ -44,10 +53,10 @@ return {
           colors.fg_float = fg
           colors.fg_gutter = fg_gutter
           colors.fg_sidebar = fg_dark
-        end
+        end,
       })
 
       vim.cmd("colorscheme tokyonight")
-    end
-  }
+    end,
+  },
 }
