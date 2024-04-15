@@ -1,3 +1,42 @@
+vim.cmd("let g:netrw_liststyle = 3")
+
+local opt = vim.opt
+opt.relativenumber = true
+opt.number = true
+
+-- tabs & indentation
+opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
+opt.shiftwidth = 2 -- 2 spaces for indent width
+opt.expandtab = true -- expand tab to spaces
+opt.autoindent = true -- copy indent from current line when starting new one
+
+opt.wrap = false
+
+-- search settings
+opt.ignorecase = true -- ignore case when searching
+opt.smartcase = true -- if you include mixed case in your search, assumes you want case-sensitive
+
+opt.cursorline = true
+
+-- turn on termguicolors for tokyonight colorscheme to work
+-- (have to use iterm2 or any other true color terminal)
+opt.termguicolors = true
+opt.background = "dark" -- colorschemes that can be light or dark will be made dark
+opt.signcolumn = "yes" -- show sign column so that text doesn't shift
+
+-- backspace
+opt.backspace = "indent,eol,start" -- allow backspace on indent, end of line or insert mode start position
+
+-- clipboard
+opt.clipboard:append("unnamedplus") -- use system clipboard as default register
+
+-- split windows
+opt.splitright = true -- split vertical window to the right
+opt.splitbelow = true -- split horizontal window to the bottom
+
+-- turn off swapfile
+opt.swapfile = false
+
 vim.g.mapleader = " " -- Set leader key to space
 vim.g.netrw_banner = 0 -- gets rid of the annoying banner for netrw
 vim.g.netrw_browse_split = 4 -- open in prior window
@@ -5,74 +44,74 @@ vim.g.netrw_altv = 1 -- change from left splitting to right splitting
 vim.g.netrw_liststyle = 3 -- tree style view in netrw
 --vim.cmd("let g:netrw_list_hide=netrw_gitignore#Hide()")
 
-vim.opt.title = true -- show title
+opt.title = true -- show title
 vim.cmd("set path+=**") -- search current directory recursively
-vim.opt.syntax = "ON"
-vim.opt.backup = false
-vim.opt.compatible = false -- turn off vi compatibility mode
-vim.opt.number = true -- turn on line numbers
-vim.opt.relativenumber = true -- turn on relative line numbers
-vim.opt.mouse = "a" -- enable the mouse in all modes
-vim.opt.ignorecase = true -- enable case insensitive searching
-vim.opt.smartcase = true -- all searches are case insensitive unless there's a capital letter
-vim.opt.hlsearch = true -- Enable all highlighted search results
-vim.opt.incsearch = true -- enable incremental searching
-vim.opt.wrap = true -- enable text wrapping
-vim.opt.tabstop = 4 -- tabs=4spaces
-vim.opt.shiftwidth = 4
-vim.opt.encoding = "utf-8"
-vim.opt.fileencoding = "utf-8" -- encoding set to utf-8
-vim.opt.pumheight = 10 -- number of items in popup menu
-vim.opt.showtabline = 2 -- always show the tab line
-vim.opt.laststatus = 2 -- always show statusline
-vim.opt.signcolumn = "auto"
-vim.opt.expandtab = false -- expand tab
-vim.opt.smartindent = true
-vim.opt.showcmd = true
-vim.opt.cmdheight = 2
-vim.opt.showmode = true
-vim.opt.scrolloff = 8 -- scroll page when cursor is 8 lines from top/bottom
-vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
-vim.opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
-vim.opt.guifont = "monospace:h17"
-vim.opt.clipboard = unnamedplus
-vim.opt.completeopt = { "menuone", "noselect" }
-vim.opt.splitbelow = true -- split go below
-vim.opt.splitright = true -- vertical split to the right
-vim.opt.termguicolors = true -- terminal gui colors
+opt.syntax = "ON"
+opt.backup = false
+opt.compatible = false -- turn off vi compatibility mode
+opt.number = true -- turn on line numbers
+opt.relativenumber = true -- turn on relative line numbers
+opt.mouse = "a" -- enable the mouse in all modes
+opt.ignorecase = true -- enable case insensitive searching
+opt.smartcase = true -- all searches are case insensitive unless there's a capital letter
+opt.hlsearch = true -- Enable all highlighted search results
+opt.incsearch = true -- enable incremental searching
+opt.wrap = true -- enable text wrapping
+opt.tabstop = 4 -- tabs=4spaces
+opt.shiftwidth = 4
+opt.encoding = "utf-8"
+opt.fileencoding = "utf-8" -- encoding set to utf-8
+opt.pumheight = 10 -- number of items in popup menu
+opt.showtabline = 2 -- always show the tab line
+opt.laststatus = 2 -- always show statusline
+opt.signcolumn = "auto"
+opt.expandtab = false -- expand tab
+opt.smartindent = true
+opt.showcmd = true
+opt.cmdheight = 2
+opt.showmode = true
+opt.scrolloff = 8 -- scroll page when cursor is 8 lines from top/bottom
+opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
+opt.sidescrolloff = 8 -- scroll page when cursor is 8 spaces from left/right
+opt.guifont = "monospace:h17"
+opt.clipboard = unnamedplus
+opt.completeopt = { "menuone", "noselect" }
+opt.splitbelow = true -- split go below
+opt.splitright = true -- vertical split to the right
+opt.termguicolors = true -- terminal gui colors
 vim.cmd("filetype plugin on") -- set filetype
 vim.cmd("set wildmenu")
 
-vim.opt.autoindent = true
+opt.autoindent = true
 --- vim.opt.shell = "fish"
-vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
-vim.opt.inccommand = "split"
-vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.smarttab = true
-vim.opt.breakindent = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.wrap = false -- No Wrap lines
-vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
-vim.opt.wildignore:append({ "*/node_modules/*" })
-vim.opt.splitbelow = true -- Put new windows below current
-vim.opt.splitright = true -- Put new windows right of current
-vim.opt.splitkeep = "cursor"
-vim.opt.mouse = "n"
+opt.backupskip = { "/tmp/*", "/private/tmp/*" }
+opt.inccommand = "split"
+opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
+opt.smarttab = true
+opt.breakindent = true
+opt.shiftwidth = 2
+opt.tabstop = 2
+opt.wrap = false -- No Wrap lines
+opt.backspace = { "start", "eol", "indent" }
+opt.path:append({ "**" }) -- Finding files - Search down into subfolders
+opt.wildignore:append({ "*/node_modules/*" })
+opt.splitbelow = true -- Put new windows below current
+opt.splitright = true -- Put new windows right of current
+opt.splitkeep = "cursor"
+opt.mouse = "n"
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
 -- Add asterisks in block comments
-vim.opt.formatoptions:append({ "r" })
+opt.formatoptions:append({ "r" })
 
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 
 if vim.fn.has("nvim-0.8") == 1 then
-  vim.opt.cmdheight = 0
+  opt.cmdheight = 0
 end
 
 -- Functional wrapper for mapping custom keybindings
