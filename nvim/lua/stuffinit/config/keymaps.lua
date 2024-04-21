@@ -1,6 +1,3 @@
-local discipline = require("stuffinit.discipline")
-discipline.coder()
-
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
@@ -10,10 +7,8 @@ keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- window management
-keymap.set("n", "ss", ":split<Return>", opts)
-keymap.set("n", "sv", ":vsplit<Return>", opts)
-keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
-keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
+keymap.set("n", "ss", ":split<Return>", opts, { desc = "Split window vertically" })
+keymap.set("n", "sv", ":vsplit<Return>", opts, { desc = "Split window horizontally" })
 keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" }) -- close current split window
 
@@ -49,11 +44,11 @@ keymap.set("n", "<leader>rI", ":Refactor inline_func", { desc = "Refactor inline
 keymap.set("n", "<leader>rb", ":Refactor extract_block", { desc = "Refactor extract block" })
 keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file", { desc = "Refactor extract block to file" })
 
--- Move window
-keymap.set("n", "sh", "<C-w>h")
-keymap.set("n", "sk", "<C-w>k")
-keymap.set("n", "sj", "<C-w>j")
-keymap.set("n", "sl", "<C-w>l")
+-- -- Move window
+-- keymap.set("n", "sh", "<C-w>h")
+-- keymap.set("n", "sk", "<C-w>k")
+-- keymap.set("n", "sj", "<C-w>j")
+-- keymap.set("n", "sl", "<C-w>l")
 
 -- Diagnostics
 keymap.set("n", "<C-j>", function()

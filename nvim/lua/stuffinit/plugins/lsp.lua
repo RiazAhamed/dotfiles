@@ -12,6 +12,8 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "css-lsp",
+        "angualr",
+        "angualr-language-server",
       })
     end,
   },
