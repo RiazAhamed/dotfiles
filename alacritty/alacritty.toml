@@ -1,22 +1,27 @@
 # themes from https://github.com/alacritty/alacritty-theme
 
 # import = ["/Users/mischa/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+# import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+# import = ["~/.config/alacritty/themes/themes/coolnight.toml"]
 import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 
 [font]
-size = 15
+size = 18
 
 [font.normal]
 family = "MesloLGS Nerd Font Mono"
 # family = "JetBrainsMono Nerd Font Mono"
 
 [window]
-decorations = "none"
 opacity = 0.95
 blur = true
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
+decorations = "Buttonless"
+option_as_alt = "Both"
 
 [window.padding]
 x = 7
 y = 5
+
+
