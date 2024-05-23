@@ -11,10 +11,8 @@ import = ["/Users/mischa/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 size = 18
 
 [font.normal]
-family = "MesloLGS Nerd Font Mono"
-# family = "ProggyClean Nerd Font Mono"
-# family = "BigBlueTerm437 Nerd Font Mono"
-# family = "JetBrainsMono Nerd Font Mono"
+# family = "MesloLGS Nerd Font Mono"
+family = "JetBrainsMono Nerd Font Mono"
 
 [window]
 opacity = 0.95
