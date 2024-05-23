@@ -1,15 +1,19 @@
 # themes from https://github.com/alacritty/alacritty-theme
 
-# import = ["/Users/mischa/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+import = ["/Users/mischa/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 # import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
 # import = ["~/.config/alacritty/themes/themes/coolnight.toml"]
-import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+# import = ["~/.config/alacritty/themes/themes/gruvbox_dark.toml"]
+# import = ["~/.config/alacritty/themes/themes/google.toml"]
+# import = ["~/.config/alacritty/themes/themes/rose-pine.toml"]
 
 [font]
 size = 18
 
 [font.normal]
 family = "MesloLGS Nerd Font Mono"
+# family = "ProggyClean Nerd Font Mono"
+# family = "BigBlueTerm437 Nerd Font Mono"
 # family = "JetBrainsMono Nerd Font Mono"
 
 [window]
