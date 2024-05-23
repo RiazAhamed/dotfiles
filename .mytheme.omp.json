@@ -6,19 +6,19 @@
       "segments": [
         {
           "style": "plain",
-          "template": "\u256d\u2500[<#ffff55>{{ .UserName }}</><#ED5144>@</><#55ff55>{{ .HostName }}</>]\u2500",
+          "template": "<#606770>\u256d<#606770>\u2500 <#84ba64>{{ .HostName }}</><#606770> | ",
           "type": "session"
         },
         {
           "foreground": "#ED5144",
           "style": "plain",
-          "template": "<#ffffff>[</>{{ .Path }}<#ffffff>]</>",
+          "template": "</>{{ .Path }}</>",
           "type": "path"
         },
         {
           "foreground": "#FF9248",
           "style": "plain",
-          "template": "<#ffffff>\u2500(</>#<#ffffff>)</>",
+          "template": "<#606770>\u2500(</>#<#606770> | </>",
           "type": "root"
         },
         {
@@ -29,7 +29,7 @@
             "fetch_upstream_icon": false
           },
           "style": "plain",
-          "template": "\u2500<#ffffff>[</><#ffff55>\uEA68<#ffffff></> {{ .HEAD }}{{ if .Staging.Changed }}<#00AA00> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<#D75F00> {{ .Working.String }}</>{{ end }}<#ffffff>]</>",
+          "template": "<#606770> | </><#ffe193>\uEA68<#606770></> {{ .HEAD }}{{ if .Staging.Changed }}<#84ba64> {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<#ED5144> {{ .Working.String }}</>{{ end }}<#606770></><#606770>",
           "type": "git"
         }
       ],
@@ -39,104 +39,104 @@
       "alignment": "right",
       "segments": [
         {
-          "foreground": "#3C873A",
+          "foreground": "#84ba64",
           "properties": {
             "fetch_package_manager": true
           },
           "style": "plain",
-          "template": "<#ffffff>(</>Node->{{ .Full }}<#ffffff>)</>",
+          "template": "<#84ba64>Node@v{{ .Full }}</><#606770> | </>",
           "type": "node"
         },
         {
           "foreground": "#FFE873",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "python"
         },
         {
           "foreground": "#ec2729",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "java"
         },
         {
           "foreground": "#0d6da8",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Unsupported }}\uf071{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "dotnet"
         },
         {
           "foreground": "#06aad5",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "go"
         },
         {
           "foreground": "#925837",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "rust"
         },
         {
           "foreground": "#055b9c",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "dart"
         },
         {
-          "foreground": "#ce092f",
+          "foreground": "#ED5144",
           "style": "plain",
-          "template": "<#ffffff>(</>Angular->{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#ED5144>ng@v{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "angular"
         },
         {
           "foreground": "#359a25",
           "style": "plain",
-          "template": "<#ffffff>(</>julia->{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>julia->{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "julia"
         },
         {
           "foreground": "#9c1006",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "ruby"
         },
         {
           "foreground": "#5398c2",
           "style": "plain",
-          "template": "<#ffffff>(</>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#ffffff>)</>",
+          "template": "<#606770></>{{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }}<#606770> | </>",
           "type": "azfunc"
         },
         {
           "foreground": "#faa029",
           "style": "plain",
-          "template": "<#ffffff>(</>{{.Profile}}{{if .Region}}@{{.Region}}{{end}}<#ffffff>)</>",
+          "template": "<#606770></>{{.Profile}}{{if .Region}}@{{.Region}}{{end}}<#606770> | </>",
           "type": "aws"
         },
         {
           "foreground": "#316ce4",
           "style": "plain",
-          "template": "<#ffffff>(</>{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}<#ffffff>)</>",
+          "template": "<#606770></>{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}<#606770> | </>",
           "type": "kubectl"
         },
         {
-          "foreground": "#ffffff",
+          "foreground": "#606770",
           "foreground_templates": [
             "{{if eq \"Charging\" .State.String}}#40c4ff{{end}}",
             "{{if eq \"Discharging\" .State.String}}#FFFB38{{end}}",
             "{{if eq \"Full\" .State.String}}#33DD2D{{end}}"
           ],
           "style": "plain",
-          "template": "<#ffffff>[</>Git->{{ if not .Error }}{{ .Percentage }}{{ end }}{{ .Error }}%<#ffffff>]</>",
+          "template": "<#84ba64>Git-{{ if not .Error }}{{ .Percentage }}{{ end }}{{ .Error }}%</>",
           "type": "battery"
         },
         {
-          "foreground": "#55ffff",
+          "foreground": "#316dca",
           "properties": {
-            "time_format": "15:04:05"
+            "time_format": "15:04"
           },
           "style": "plain",
-          "template": "<#ffffff>[</>{{ .CurrentDate | date .Format }}<#ffffff>]</>",
+          "template": "<#606770> | </>{{ .CurrentDate | date .Format }}</>",
           "type": "time"
         }
       ],
@@ -148,17 +148,17 @@
       "segments": [
         {
           "style": "plain",
-          "template": "\u2570\u2500",
+          "template": "<#606770>\u2570<#606770>\u2500",
           "type": "text"
         },
         {
-          "foreground": "#ecf7fa",
+          "foreground": "#606770",
           "foreground_templates": ["{{ if gt .Code 0 }}#ef5350{{ end }}"],
           "properties": {
             "always_enabled": true
           },
           "style": "plain",
-          "template": "🔥",
+          "template": " 🔥 ",
           "type": "exit"
         }
       ],
