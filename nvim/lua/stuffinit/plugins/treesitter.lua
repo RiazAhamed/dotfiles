@@ -12,6 +12,8 @@ return {
         "fish",
         "gitignore",
         "go",
+        "gomod",
+        "gosum",
         "graphql",
         "http",
         "java",
@@ -65,6 +67,12 @@ return {
         },
       })
       vim.treesitter.language.register("markdown", "mdx")
+      -- Go templ support
+      vim.filetype.add({
+        extension = {
+          templ = "templ",
+        },
+      })
     end,
   },
 }

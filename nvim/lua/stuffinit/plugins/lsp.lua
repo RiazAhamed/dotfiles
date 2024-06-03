@@ -14,6 +14,7 @@ return {
         "css-lsp",
         "angualr",
         "angualr-language-server",
+        "gopls",
       })
     end,
   },
