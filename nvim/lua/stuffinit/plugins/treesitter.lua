@@ -68,11 +68,11 @@ return {
       })
       vim.treesitter.language.register("markdown", "mdx")
       -- Go templ support
-      vim.filetype.add({
-        extension = {
-          templ = "templ",
-        },
-      })
+      -- vim.filetype.add({
+      --   extension = {
+      --     templ = "templ",
+      --   },
+      -- })
     end,
   },
 }
