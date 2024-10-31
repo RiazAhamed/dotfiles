@@ -1,0 +1,1 @@
+source "/Users/28lb/.deno/env.fish"
